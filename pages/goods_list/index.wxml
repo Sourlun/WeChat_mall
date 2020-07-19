@@ -1,13 +1,8 @@
 <SearchInput></SearchInput>
 <Tabs tabs="{{tabList}}" bindtabItemChange="handlerTabItemChange">
     <block wx:if="{{tabList[0].isActive}}">
-
         <view class="first_tab">
-            <navigator class="good_item"
-                wx:for="{{goodList}}"
-                wx:for-index="cat_id"
-                wx:for-item="item"
-            >
+            <navigator class="good_item" wx:for="{{goodList}}" wx:for-index="cat_id" wx:for-item="item">
                 <!-- 左侧图片 -->
                 <view class="good_img">
                     <image class="" src="{{item.goods_big_logo}}" mode="widthFix" lazy-load="false" binderror="" bindload="" />
@@ -20,7 +15,4 @@
             </navigator>
         </view>
     </block>
- 
-
 </Tabs>
-
