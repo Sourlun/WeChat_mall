@@ -17,12 +17,8 @@
                     <view class="good_name">{{item.goods_name}}</view>
                     <view class="good_price">￥{{item.goods_price}}</view>
                 </view>
-
             </navigator>
         </view>
-
-
-        0
     </block>
  
 
