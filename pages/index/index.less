@@ -1,0 +1,74 @@
+view {
+  color: var(--themeColor);
+}
+
+.index_swiper {
+  swiper {
+    // 可以不写
+    width: 750rpx;
+    // 图片的高为340
+    height: 340rpx;
+    image {
+      width: 100%;
+    }
+  }
+}
+
+.index_catalog {
+  display: flex;
+  navigator {
+    padding-top: 20rpx;
+    flex: 1;
+    image {
+      //父元素多宽就多宽
+      width: 100%;
+    }
+  }
+}
+
+.index_floor {
+    // 清除浮动
+    // overflow 属性规定当内容溢出元素框时发生的事情。
+    overflow: hidden;
+  .floor_group {
+    .floor_title {
+        padding-top: 15rpx;
+        width: 100%;
+      image {
+      }
+    }
+    .floor_content {
+      navigator {
+          float: left;
+          width: 33.33%;
+
+        // 后四个图片（需要等高 & 高度与是第一张的1/2）
+        &:nth-last-child(-n+4){
+            image{
+                /* 
+                * vw: 屏幕宽度  vh: 屏幕高度
+                * 原图宽高 232 * 368
+                * 232 / 368 = 33.33 / height
+                * 第一张图片的高度： height = 33.33vw * 386 / 232
+                */
+                // 所以后四张图片高度 = 第一张高度 / 2
+                height: 33.33vw * 386 / 232 / 2;
+
+                border-left: 10rpx white solid;
+            }
+        }
+
+        // 2 和 3 两个超链接
+        &:nth-child(2),&:nth-child(3){
+            border-bottom: solid 10rpx white;
+        }
+
+        image {
+            // 继承父元素的宽高度
+            width: 100%;
+            height: 100%;
+        }
+      }
+    }
+  }
+}

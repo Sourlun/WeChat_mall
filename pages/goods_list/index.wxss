@@ -1,0 +1,29 @@
+.first_tab .good_item {
+  display: flex;
+}
+.first_tab .good_item .good_img {
+  flex: 2;
+  align-content: center;
+  padding-bottom: 20rpx;
+}
+.first_tab .good_item .good_img image {
+  size: 90%;
+}
+.first_tab .good_item .good_info {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.first_tab .good_item .good_info .good_name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.first_tab .good_item .good_info .good_price {
+  color: var(--themeColor);
+  font-size: 30rpx;
+}

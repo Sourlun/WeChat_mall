@@ -1,0 +1,30 @@
+<SearchInput></SearchInput>
+<Tabs tabs="{{tabList}}" bindtabItemChange="handlerTabItemChange">
+    <block wx:if="{{tabList[0].isActive}}">
+
+        <view class="first_tab">
+            <navigator class="good_item"
+                wx:for="{{goodList}}"
+                wx:for-index="cat_id"
+                wx:for-item="item"
+            >
+                <!-- 左侧图片 -->
+                <view class="good_img">
+                    <image class="" src="{{item.goods_big_logo}}" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+                </view>
+                <!-- 右侧文字 -->
+                <view class="good_info">
+                    <view class="good_name">{{item.goods_name}}</view>
+                    <view class="good_price">￥{{item.goods_price}}</view>
+                </view>
+
+            </navigator>
+        </view>
+
+
+        0
+    </block>
+ 
+
+</Tabs>
+

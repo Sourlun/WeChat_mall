@@ -1,0 +1,48 @@
+/* pages/category/index.wxss */
+page {
+  height: 100%;
+}
+.main_container {
+  height: calc( 100vh - 90rpx );
+  display: flex;
+}
+.main_container .left_menu {
+  flex: 2;
+  background-color: #b0c4de;
+}
+.main_container .left_menu .menu_item {
+  align-items: center;
+  justify-content: center;
+  height: 100rpx;
+  display: flex;
+  font-size: 30rpx;
+}
+.main_container .left_menu .active {
+  color: var(--themeColor);
+  border-left: solid 5rpx currentColor;
+}
+.main_container .right_content {
+  flex: 5;
+  background-color: #ffffff;
+}
+.main_container .right_content .content_group .title {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  background-color: #ffc0cb;
+}
+.main_container .right_content .content_group .content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.main_container .right_content .content_group .content navigator {
+  width: 33.33%;
+  align-items: center;
+  text-align: center;
+  padding-top: 10rpx;
+}
+.main_container .right_content .content_group .content navigator image {
+  width: 50%;
+}

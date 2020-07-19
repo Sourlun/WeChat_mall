@@ -1,0 +1,60 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/category/index", 
+    "pages/goods_list/index",
+    "pages/goods_detail/index", 
+    "pages/cart/index",
+    "pages/collect/index",
+    "pages/order/index",
+    "pages/search/index",
+    "pages/user/index",
+    "pages/feedback/index",
+    "pages/login/index",
+    "pages/auth/index",
+    "pages/pay/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#FF1493",
+    "navigationBarTitleText": "我的大大大大商城",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#191970",
+    "selectedColor": "#C71585",
+    "backgroundColor": "",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icons/index.png",
+        "selectedIconPath": "icons/index1.png"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "text": "分类",
+        "iconPath": "icons/catalog.png",
+        "selectedIconPath": "icons/catalog1.png"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "购物车",
+        "iconPath": "icons/shopCar.png",
+        "selectedIconPath": "icons/shopCar1.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": " 我的",
+        "iconPath": "icons/mine.png",
+        "selectedIconPath": "icons/mine1.png"
+      }
+    ]
+  },
+  
+    
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

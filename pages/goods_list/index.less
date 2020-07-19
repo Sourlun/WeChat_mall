@@ -1,0 +1,34 @@
+.first_tab{
+    .good_item{
+        display: flex;
+        .good_img{
+            flex: 2;
+            align-content: center;
+            image{
+                size: 90%;
+            }
+            padding-bottom: 20rpx;
+        }
+        .good_info{
+            flex: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // 主轴方向： 列方向
+            flex-direction: column;
+            // 空白环绕
+            justify-content: space-around;
+            .good_name{     
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-box-orient: vertical;
+                // 限制一个块元素显示文本的行数
+                -webkit-line-clamp: 2;
+            }
+            .good_price{
+                color: var(--themeColor);
+                font-size: 30rpx;
+            }
+        }
+    }
+}

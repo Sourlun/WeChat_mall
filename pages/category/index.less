@@ -1,0 +1,54 @@
+/* pages/category/index.wxss */
+page {
+  height: 100%;
+}
+.main_container {
+  // ~'' :  less 不编译里面的代码
+  height: ~"calc( 100vh - 90rpx )";
+  display: flex;
+  .left_menu {
+    flex: 2;
+    background-color: #b0c4de;
+    .menu_item {
+      align-items: center;
+      justify-content: center;
+      height: 100rpx;
+      display: flex;
+      font-size: 30rpx;
+    }
+    .active{
+      color: var(--themeColor);
+      border-left: solid 5rpx currentColor;
+    }
+  }
+  .right_content {
+    flex: 5;
+    background-color: #ffffff;
+    .content_group {
+      .title {
+        height: 80rpx;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40rpx;
+        background-color: #ffc0cb;
+      }
+      .content {
+        display: flex;
+        // 换行效果
+        flex-wrap: wrap;
+        navigator {
+          width: 33.33%;
+          align-items: center;
+          text-align: center;
+          padding-top: 10rpx;
+          image {
+            width: 50%;
+          }
+          .content_name {
+          }
+        }
+      }
+    }
+  }
+}
