@@ -9,13 +9,11 @@ page {
 .main_container .left_menu {
   flex: 2;
   background-color: #b0c4de;
-  overflow: hidden;
 }
 .main_container .left_menu .menu_item {
   align-items: center;
   justify-content: center;
   height: 100rpx;
-  display: flex;
   font-size: 30rpx;
 }
 .main_container .left_menu .active {
@@ -25,9 +23,6 @@ page {
 .main_container .right_content {
   flex: 5;
   background-color: #ffffff;
-}
-.main_container .right_content .content_group {
-  overflow: hidden;
 }
 .main_container .right_content .content_group .title {
   height: 80rpx;

@@ -9,12 +9,14 @@ page {
   .left_menu {
     flex: 2;
     background-color: #b0c4de;
+    overflow: hidden;
     .menu_item {
       align-items: center;
       justify-content: center;
       height: 100rpx;
       display: flex;
       font-size: 30rpx;
+      // display: inline-block;
     }
     .active{
       color: var(--themeColor);
@@ -25,6 +27,8 @@ page {
     flex: 5;
     background-color: #ffffff;
     .content_group {
+      overflow: hidden;
+
       .title {
         height: 80rpx;
         display: flex;

@@ -4,7 +4,9 @@
 <view class="main_container">
     <!-- 左侧菜单 -->
     <scorll-view class="left_menu" scroll-y="true">
-        <view class="menu_item {{index===currentChooseMenu?'active':''}}" wx:for="{{leftMenuList}}" wx:key="*this" bindtap="handlerItemTap" data-index="{{index}}">{{item}}</view>
+        <view class="menu_item {{index===currentChooseMenu?'active':''}}" wx:for="{{leftMenuList}}" wx:key="*this" bindtap="handlerItemTap" data-index="{{index}}">
+            {{item}}
+        </view>
     </scorll-view>
     <!-- 右侧菜单 -->
     <scorll-view class="right_content">

@@ -1,4 +1,12 @@
-// pages/goods_list/index.js
+// pages/goods_list/index.js 
+/**
+ *  1，用户上滑页面，滚动条触底的时候，需要加载下一页数据
+ *    1.1， 找到滚动条触底事件（官网文档寻找） 
+ *    1.2， 判断有没有下一页数据
+ *      1.2.1: 获取总页数
+ *              总页数 = Math.ceil(总条数 / 页容量pagesize)
+ *    1.3， 如果有下一页数据： 页码++  重新请求数据  数组拼接
+ */
 import { request } from "../../request/index.js";
 Page({
 
@@ -29,6 +37,20 @@ Page({
   },
 
   /**
+   *  页数对象
+   */
+  pageObj: {
+    // 总页数
+    totalPage: 0,
+    // 总数量
+    total: 0,
+    // 当前页数
+    currentPageNum: 1,
+    // 每页大小
+    pageSize: 10
+  },
+
+  /**
    *   查询参数
    */
   QueryParams: {
@@ -38,6 +60,8 @@ Page({
     pagesize: 10
   },
 
+
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -46,7 +70,7 @@ Page({
     // 获取商品列表数据
     this.getGoodList();
   },
-  
+
   /**
    *  获取商品列表数据
    */
@@ -54,11 +78,17 @@ Page({
     request({
       url: "/goods/search",
       data: this.QueryParams
-    }).then( res => {
-      console.log(res);
+    }).then(res => {
+      // 商品列表
       let goodList = res.data.message.goods;
+      // 总数量
+      this.pageObj.total = res.data.message.total;
+      // 总页数
+      this.pageObj.totalPage = Math.ceil(this.pageObj.total / this.pageObj.pageSize)
+      console.log(res)
       this.setData({
-        goodList
+        // 扩展运算符
+        goodList: [...this.data.goodList, ...res.data.message.goods]
       })
     })
   },
@@ -67,11 +97,11 @@ Page({
    * 处理tab改变
    * @param {*} e 
    */
-  handlerTabItemChange: function(e) {
-    let {index} = e.detail;
-    let {tabList} = this.data;
-    tabList.forEach( item => {
-      item.id===index?item.isActive=true:item.isActive=false;
+  handlerTabItemChange: function (e) {
+    let { index } = e.detail;
+    let { tabList } = this.data;
+    tabList.forEach(item => {
+      item.id === index ? item.isActive = true : item.isActive = false;
     });
     this.setData({
       tabList
@@ -117,6 +147,22 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+
+    let { currentPageNum } = this.pageObj;
+    let { totalPage } = this.pageObj;
+
+    if (currentPageNum > totalPage) {
+      console.log('已经达到最大页数');
+      wx.showToast({
+        title: '没有下一页数据 '
+      });
+
+    } else {
+      console.log('继续')
+      this.pageObj.currentPageNum++;
+      this.QueryParams.pagenum = this.pageObj.currentPageNum;
+      this.getGoodList();
+    }
 
   },
 
