@@ -6,6 +6,14 @@
  *      1.2.1: 获取总页数
  *              总页数 = Math.ceil(总条数 / 页容量pagesize)
  *    1.3， 如果有下一页数据： 页码++  重新请求数据  数组拼接
+ * 
+ *    2，下拉刷新页面
+ *      2.1，触发下拉刷新条件：需要在json文件中开启一个配置项
+ *        找到下拉刷新事件
+ *      2.2，重置 数组 数据
+ *      2.3，重置页码 设置为‘1’
+ *      2.4，重新发送请求
+ *      2.5, 数据回来了，需要手动关闭等待效果
  */
 import { request } from "../../request/index.js";
 Page({
@@ -90,6 +98,7 @@ Page({
         // 扩展运算符
         goodList: [...this.data.goodList, ...res.data.message.goods]
       })
+      wx.stopPullDownRefresh()
     })
   },
 
@@ -171,5 +180,19 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  /**
+   *  下拉刷新事件
+   */
+  onPullDownRefresh() {
+    console.info("下拉刷新事件");
+    // 1, 重置数组
+    this.setData({
+      goodList: []
+    })
+    // 2,重置页码
+    this.QueryParams.pagenum = 1;
+    // 3，发送请求
+    this.getGoodList();
   }
 })
